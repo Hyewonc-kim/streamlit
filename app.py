@@ -19,10 +19,10 @@ for font_file in font_files:
 
 fm._load_fontmanager(try_read_cache=False)
 
-fontNames = [f.name for f in fm.fontManager.ttflist]
-fontname = st.selectbox('폰트선택', uniqueA(fontNames))
+# fontNames = [f.name for f in fm.fontManager.ttflist]
+# fontname = st.selectbox('폰트선택', uniqueA(fontNames))
 
-plt.rc('font', family=fontname)
+plt.rc('font', family='NanumGothicOTF')
 
 data = pd.read_csv('vegetable.csv', encoding='cp949')
 dhead = data.iloc[:,0]
