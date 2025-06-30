@@ -7,9 +7,22 @@ import matplotlib.ticker as ticker
 import os
 import matplotlib.font_manager as fm 
 
-font_file = os.getcwd()+'/fonts/NanumGothic.otf'
-fm.fontManager.addfont(font_file)
-plt.rc('font', family='NanumGothic')
+def uniqueA(list):
+    x = np.array(list)
+    return np.unique(x)
+
+font_dirs = [os.getcwd()+'/fonts']
+font_files = fm.findSystemFonts(fontpaths=font_dirs)
+
+for font_file in font_files:
+    fm.fontManager.addfont(font_file)
+
+fm._load_fontmanager(try_read_cache=False)
+
+fontNames = [f.name for f in fm.fontManager.ttflist]
+fontname = st.selectbox('폰트선택', uniqueA(fontNames))
+
+plt.rc('font', family=fontname)
 
 data = pd.read_csv('vegetable.csv', encoding='cp949')
 dhead = data.iloc[:,0]
