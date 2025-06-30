@@ -6,7 +6,7 @@ import matplotlib.ticker as ticker
 
 plt.rc('font', family='NanumGothic')
 
-data = pd.read_csv('vegetable.csv',encoding='ANSI')
+data = pd.read_csv('vegetable.csv', encoding='cp949')
 dhead = data.iloc[:,0]
 
 def extractYear(year):
