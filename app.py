@@ -4,6 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import matplotlib.ticker as ticker
 
+import os
+import matplotlib.font_manager as fm 
+
+font_file = os.getcwd()+'/fonts/NanumGothic.otf'
+fm.fontManager.addfont(font_file)
 plt.rc('font', family='NanumGothic')
 
 data = pd.read_csv('vegetable.csv', encoding='cp949')
